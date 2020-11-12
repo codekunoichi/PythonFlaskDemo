@@ -47,9 +47,9 @@ $ flask run
 
 ## Database Setup
 
-- `CREATE SCHEMA nqchallenge;` -
+- `CREATE SCHEMA nqchallenge;`
 
-  ```
+- ```
   CREATE TABLE nqchallenge.TYPING_SCORE(
    TYPING_SOCRE_ID SERIAL PRIMARY KEY      NOT NULL,
    SCORE           NUMERIC(10, 2) NOT NULL,
