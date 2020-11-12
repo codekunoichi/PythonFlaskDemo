@@ -37,4 +37,4 @@ $ flask run
  * Running on http://127.0.0.1:5000/
 ```
 
-- Go to `http://localhost:5000/`
+- On your favorite browser - Go to URL `http://localhost:5000/` to see the Hello World
