@@ -46,6 +46,7 @@ $ flask run
 - `pip3 install sqlalchemy`
 - `pip3 install flask_sqlalchemy`
 - `pip3 install psycopg2-binary`
+- `pip3 install simplejson` (Oddly this was a necessary install to avoid the error `TypeError: Object of type Decimal is not JSON serializable`)
 
 ## Database Setup
 
