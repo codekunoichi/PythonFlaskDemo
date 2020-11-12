@@ -12,6 +12,8 @@ we can do anything with our application within this environment, without affecti
 
 - `source bin/activate`
 
+- Add a basic gitignore file `echo "*.pyc" >> .gitignore`
+
 ## Install Flask Package
 
 - `pip3 install flask`
