@@ -44,15 +44,23 @@ $ flask run
 ## Integrating SQLAlchemy into the Flask Application
 
 - `pip3 install sqlalchemy`
+- `pip3 install flask_sqlalchemy`
+- `pip3 install psycopg2-binary`
 
 ## Database Setup
 
 - `CREATE SCHEMA nqchallenge;`
 
-- ```
-  CREATE TABLE nqchallenge.TYPING_SCORE(
-   TYPING_SOCRE_ID SERIAL PRIMARY KEY      NOT NULL,
-   SCORE           NUMERIC(10, 2)          NOT NULL,
-   EVENT_DATE      TIMESTAMP               NOT NULL
-  );
+- `DROP TABLE nqchallenge.TYPING_SCORE;`
+
+  ```
+    CREATE TABLE nqchallenge.TYPING_SCORE(
+       TYPING_SCORE_ID SERIAL PRIMARY KEY      NOT NULL,
+       SCORE           NUMERIC(10, 2)          NOT NULL,
+       EVENT_DATE      TIMESTAMP               NOT NULL
+    );
+
+    CREATE SCHEMA nqchallenge;
+
+    select * from nqchallenge.typing_score;
   ```
