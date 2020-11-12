@@ -4,14 +4,14 @@
 
 we can do anything with our application within this environment, without affecting any other Python environment.
 
-`pip3 install virtualenv`
+- `pip3 install virtualenv`
 
-`virtualenv my_flask_app`
+- `virtualenv my_flask_app`
 
-`cd my_flask_app`
+- `cd my_flask_app`
 
-`source bin/activate`
+- `source bin/activate`
 
 ## Install Flask Package
 
-`pip3 install flask`
+- `pip3 install flask`
