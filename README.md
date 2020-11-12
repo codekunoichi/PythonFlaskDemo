@@ -44,3 +44,15 @@ $ flask run
 ## Integrating SQLAlchemy into the Flask Application
 
 - `pip3 install sqlalchemy`
+
+## Database Setup
+
+- `CREATE SCHEMA nqchallenge;` -
+
+  ```
+  CREATE TABLE nqchallenge.TYPING_SCORE(
+   TYPING_SOCRE_ID SERIAL PRIMARY KEY      NOT NULL,
+   SCORE           NUMERIC(10, 2) NOT NULL,
+   EVENT_DATE         TIMESTAMP      NOT NULL
+  );
+  ```
