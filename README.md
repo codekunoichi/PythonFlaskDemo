@@ -15,3 +15,16 @@ we can do anything with our application within this environment, without affecti
 ## Install Flask Package
 
 - `pip3 install flask`
+
+## Simple Hello hello
+
+- Create a `hello.py` file with the following content
+
+```
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+```
