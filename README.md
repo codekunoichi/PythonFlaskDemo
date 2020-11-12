@@ -1,6 +1,6 @@
 # Demo of a basic Flask Application
 
-## Initial a virtual environment
+## Initialize a virtual environment
 
 we can do anything with our application within this environment, without affecting any other Python environment.
 
