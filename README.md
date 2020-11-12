@@ -41,7 +41,7 @@ $ flask run
 
 - On your favorite browser - Go to URL `http://localhost:5000/` to see the Hello World
 
-## Integrating SQLAlchemy into the Flask Application
+## Integrating DB Connectivity
 
 - `pip3 install sqlalchemy`
 - `pip3 install flask_sqlalchemy`
