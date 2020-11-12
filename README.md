@@ -18,7 +18,7 @@ we can do anything with our application within this environment, without affecti
 
 - `pip3 install flask`
 
-## Simple Hello hello
+## Simple Hello World
 
 - Create a `hello.py` file with the following content
 
