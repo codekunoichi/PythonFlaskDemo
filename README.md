@@ -28,3 +28,13 @@ app = Flask(__name__)
 def hello_world():
     return 'Hello, World!'
 ```
+
+## To run the hello world locally
+
+```
+export FLASK_APP=hello.py
+$ flask run
+ * Running on http://127.0.0.1:5000/
+```
+
+- Go to `http://localhost:5000/`
