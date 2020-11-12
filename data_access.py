@@ -4,7 +4,7 @@ from datetime import datetime
 import json
 
 my_app = Flask(__name__)
-my_app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://postgres:p3wt1gSBHCixAbgy1sTo@cc03942.technical-challenge-db.nq-medical.com'
+my_app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://postgres:XXX@cc03942.localhost.com'
 db = SQLAlchemy(my_app)
 
 
