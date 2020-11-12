@@ -12,11 +12,7 @@ def get_typing_score():
     for d in data:
         result.append(d.to_dict())
     print("....Printing results....")
-    print(jsonify(result))
-    return {
-        "value" : 0.1,
-        "timestamp" : "2020-10-01T19:00:00:00",
-    }
+    return jsonify(result)
 
 @app.route('/save-typing-score', methods=['POST'])
 def insert_typing_score():
