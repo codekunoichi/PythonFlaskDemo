@@ -11,3 +11,7 @@ we can do anything with our application within this environment, without affecti
 `cd my_flask_app`
 
 `source bin/activate`
+
+## Install Flask Package
+
+`pip3 install flask`
