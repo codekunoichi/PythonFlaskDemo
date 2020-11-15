@@ -134,3 +134,12 @@ def save_typing_score(typing_score, event_date_time):
     db.session.add(TypingScore(score=typing_score, event_date=dt))
     db.session.commit()
 ```
+
+## Pinciples followed for clean coding
+
+- Having no more than 10 lines of code per method for ease of readability
+- Single Responsibility Principle - Each function doing only one thing and no more. Hence do not be afraid to make small utility methods like `save_typing_score`
+
+## Room for improvement
+
+- Bette separation - introduce abstraction to separate UI knowing from having the presence of DB - and DB knowing UI will use it. Due to limited time for submission, I have kept the code functional but I would probably revisit and separate the `save_typing_score` method to encapsulate interaction with DB. Such that a standalone application can equally use the save method besides the UI application.
