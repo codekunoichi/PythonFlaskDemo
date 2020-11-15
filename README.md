@@ -106,3 +106,31 @@ my_app = Flask(__name__)
 my_app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://uname:pwd@cdbhost.com'
 db = SQLAlchemy(my_app)
 ```
+
+## Wiring API Logic
+
+- URL mapping will be via `@app.route('/typing-score')`
+- As you can see this mini web application will have access to URLs `'/typing-score'`, `'/save-typing-score'`
+- For each URL define what the method will do behind the scene.
+- The most convenient package to transform and adhere to JSON output would be `jsonify` import that
+
+```
+@app.route('/typing-score')
+def get_typing_score():
+    data = db.session.query(TypingScore).limit(10).all()
+    result = []
+    for d in data:
+        result.append(d.to_dict())
+    return jsonify(result)
+
+@app.route('/save-typing-score', methods=['POST'])
+def insert_typing_score():
+    data = request.get_json()
+    save_typing_score(data['value'], data['timestamp'])
+    return "Successfully saved"
+
+def save_typing_score(typing_score, event_date_time):
+    dt = datetime.strptime(event_date_time, '%Y-%m-%dT%H:%M:%S')
+    db.session.add(TypingScore(score=typing_score, event_date=dt))
+    db.session.commit()
+```
