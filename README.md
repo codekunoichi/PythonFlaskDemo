@@ -137,7 +137,7 @@ def save_typing_score(typing_score, event_date_time):
 
 ## Pinciples followed for clean coding
 
-- Having no more than 10 lines of code per method for ease of readability
+- Keep it short - Having no more than 10 lines of code per method for ease of readability
 - Single Responsibility Principle - Each function doing only one thing and no more. Hence do not be afraid to make small utility methods like `save_typing_score`
 
 ## Room for improvement
