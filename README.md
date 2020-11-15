@@ -142,4 +142,7 @@ def save_typing_score(typing_score, event_date_time):
 
 ## Room for improvement
 
-- Bette separation - introduce abstraction to separate UI knowing from having the presence of DB - and DB knowing UI will use it. Due to limited time for submission, I have kept the code functional but I would probably revisit and separate the `save_typing_score` method to encapsulate interaction with DB. Such that a standalone application can equally use the save method besides the UI application.
+- config file to not hard code the DB URL.
+- Bette separation - introduce abstraction to separate UI knowing from having the presence of DB - and DB knowing UI will use it.
+- Flask Route Testiing.
+- Due to limited time for submission, I have kept the code functional but I would probably revisit and separate the `save_typing_score` method to encapsulate interaction with DB. Such that a standalone application can equally use the save method besides the UI application.
