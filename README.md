@@ -65,3 +65,44 @@ $ flask run
 
     select * from nqchallenge.typing_score;
   ```
+
+  ## Wiring SQLAlchemy to do basic CRUD
+
+  ```
+  class TypingScore(db.Model):
+      typing_score_id = db.Column(db.Integer, primary_key=True)
+      score = db.Column(db.Numeric(10,2), nullable=False)
+      event_date = db.Column(db.DateTime, nullable=False)
+      __table_args__ = {'schema': 'nqchallenge'}
+
+      def __repr__(self):
+          return '<TypingScore %r %r %r>' % (self.typing_score_id, self.score, self.event_date)
+
+      def to_dict(self):
+          return {
+              "timestamp" : self.event_date,
+              "value" : self.score
+          }
+  ```
+
+- The `to_dict` method will be used for shipping API JSON output.
+
+- Good practice - always add a `__repr__` method call for debugging purposes and printing readable object reprresentations.
+
+- `https://docs.sqlalchemy.org/en/13/core/type_basics.html` Use this translation to map between PostgreSQL DB Data type and the equivalent type in ORM.
+
+## Adding data to the table
+
+```
+db.session.add(TypingScore(score=0.42, event_date=datetime.now()))
+db.session.add(TypingScore(score=0.25, event_date=datetime.now()))
+db.session.commit()
+```
+
+The `db` handle was Initialized using the following:
+
+```
+my_app = Flask(__name__)
+my_app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://uname:pwd@cdbhost.com'
+db = SQLAlchemy(my_app)
+```
