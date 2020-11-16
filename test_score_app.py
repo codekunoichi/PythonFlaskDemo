@@ -8,12 +8,12 @@ app = my_app
 @app.route('/typing-score')
 def get_typing_score():
     result = find_last_10()
-    print("....Printing results....")
+    #print("....Printing results....")
     return jsonify(result)
 
-@app.route('/save-typing-score', methods=['POST'])
+@app.route('/typing-score', methods=['POST'])
 def insert_typing_score():
     data = request.get_json()
-    print(data)
+    #print(data)
     save(data['value'], data['timestamp'])
     return "Successfully saved"
