@@ -34,13 +34,13 @@ def count_records():
     return db.session.query(TypingScore).count()
 
 def save(typing_score, event_date):
-    dt = datetime.strptime(event_date, '%Y-%m-%dT%H:%M:%S')
+    dt = datetime.strptime(event_date, '%Y-%m-%dT%H:%M:%S.%f')
     db.session.add(TypingScore(score=typing_score, event_date=dt))
     db.session.commit()
 
-print(count_records())
-save(0.99, '2020-10-29T19:30:30')
-print(count_records())
+#print(count_records())
+#save(0.99, '2020-11-16T03:40:43.968688')
+#print(count_records())
 #db.session.add(TypingScore(score=0.49, event_date=datetime.now()))
 #db.session.add(TypingScore(score=0.25, event_date=datetime.now()))
 #db.session.commit()
