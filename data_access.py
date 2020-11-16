@@ -23,8 +23,24 @@ class TypingScore(db.Model):
             "value" : self.score
         }
 
+def find_last_10():
+    data = db.session.query(TypingScore).limit(10).all()
+    result = []
+    for d in data:
+        result.append(d.to_dict())
+    return result
 
+def count_records():
+    return db.session.query(TypingScore).count()
 
-#db.session.add(TypingScore(score=0.42, event_date=datetime.now()))
+def save(typing_score, event_date):
+    dt = datetime.strptime(event_date, '%Y-%m-%dT%H:%M:%S')
+    db.session.add(TypingScore(score=typing_score, event_date=dt))
+    db.session.commit()
+
+print(count_records())
+save(0.99, '2020-10-29T19:30:30')
+print(count_records())
+#db.session.add(TypingScore(score=0.49, event_date=datetime.now()))
 #db.session.add(TypingScore(score=0.25, event_date=datetime.now()))
 #db.session.commit()
