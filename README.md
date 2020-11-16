@@ -135,6 +135,22 @@ def save_typing_score(typing_score, event_date_time):
     db.session.commit()
 ```
 
+## How to access API end point once you run the Flask Application
+
+- `export FLASK_APP=test_score_app.py`
+- `flask run`
+
+- To post typing score use the following command to test
+
+```
+curl -X POST http://localhost:5000/save-typing-score -H 'content-type: application/json' -d '{"value":
+0.1, "timestamp": "2020-10-01T19:00:00"}' -i
+```
+
+Please note the URL change - `save-typing-score`
+
+- To retreive typing score use the following command `curl http://localhost:5000/typing-score`
+
 ## Pinciples followed for clean coding
 
 - Keep it short - Having no more than 10 lines of code per method for ease of readability
