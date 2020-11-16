@@ -9,7 +9,7 @@ class TestDataAccess(unittest.TestCase):
         count = count_records()
         print(count)
         #{"timestamp":"2020-10-01T19:00:00","value":0.1},
-        save(0.25, '2020-10-29T19:30:30')
+        save(0.25, '2020-11-16T03:40:43.968688')
         new_count = count_records()
         self.assertTrue(count + 1 == new_count)
 
