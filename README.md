@@ -162,3 +162,25 @@ Please note the URL change - `save-typing-score`
 - Bette separation - introduce abstraction to separate UI knowing from having the presence of DB - and DB knowing UI will use it.
 - Flask Route Testiing.
 - Due to limited time for submission, I have kept the code functional but I would probably revisit and separate the `save_typing_score` method to encapsulate interaction with DB. Such that a standalone application can equally use the save method besides the UI application.
+
+## Scaling the application
+
+For solving the following ask:
+
+```
+Describe in couple sentences
+■ How would single machine performance further improve?
+■ How would you scale this to handle 10k requests / second?
+■ How would you scale this to handle 100k requests / second?
+■ How would you scale this to handle 1M requests / second?
+```
+
+My proposal would be to not use EC2 but go with Serverless Architecture. Since each typing event observation is an independent event. Backend would be DynamoDB. For Lambda out of the box AWS will impose a restrcition of 1000 concurrent lambda. So it the request to be served per second exceeds 1000 lambdas, we will request AWS to change our service limits. Once we have determined the metric as per our observation.
+
+![Sample AWS Serverless Architecture](./nq-MedicalServerlessApplicationArchitecture.png?raw=true)
+
+The choice of DB is DynamoDB - since it can handle the request per seconds posed by the problem definition.
+
+Quoting the AWS Documentation below -
+
+`DynamoDB can handle more than 10 trillion requests per day and can support peaks of more than 20 million requests per second.`
