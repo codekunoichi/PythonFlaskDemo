@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-from  data_access import db, TypingScore, my_app
+from  data_access import db, TypingScore, my_app, save, find_last_10
 from datetime import datetime
 
 
@@ -7,10 +7,7 @@ app = my_app
 
 @app.route('/typing-score')
 def get_typing_score():
-    data = db.session.query(TypingScore).limit(10).all()
-    result = []
-    for d in data:
-        result.append(d.to_dict())
+    result = find_last_10()
     print("....Printing results....")
     return jsonify(result)
 
@@ -18,10 +15,5 @@ def get_typing_score():
 def insert_typing_score():
     data = request.get_json()
     print(data)
-    save_typing_score(data['value'], data['timestamp'])
+    save(data['value'], data['timestamp'])
     return "Successfully saved"
-
-def save_typing_score(typing_score, event_date_time):
-    dt = datetime.strptime(event_date_time, '%Y-%m-%dT%H:%M:%S')
-    db.session.add(TypingScore(score=typing_score, event_date=dt))
-    db.session.commit()
