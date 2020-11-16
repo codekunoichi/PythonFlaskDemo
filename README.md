@@ -175,7 +175,7 @@ Describe in couple sentences
 ■ How would you scale this to handle 1M requests / second?
 ```
 
-My proposal would be to not use EC2 but go with Serverless Architecture. Since each typing event observation is an independent event. Backend would be DynamoDB. For Lambda out of the box AWS will impose a restrcition of 1000 concurrent lambda. So it the request to be served per second exceeds 1000 lambdas, we will request AWS to change our service limits. Once we have determined the metric as per our observation.
+My proposal would be to not use EC2 but go with Serverless Architecture. Since each typing event observation is an independent event. Backend would be DynamoDB. For Lambda out of the box AWS will impose a restrcition of 1000 concurrent lambda. So if the request to be served per second exceeds 1000 lambdas, we will request AWS to change our service limits. Once we have determined the metric as per our observation.
 
 ![Sample AWS Serverless Architecture](./nq-MedicalServerlessApplicationArchitecture.png?raw=true)
 
